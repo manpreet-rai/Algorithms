@@ -5,8 +5,6 @@
         public int[] Sequence {  get; set; }
         public int SearchValue { get; set; }
 
-        public int? Index { get; set; } = null;
-
         public LinearSearch() { }
 
         public LinearSearch(int[] sequence, int searchValue)
@@ -17,21 +15,17 @@
 
         public int? Search()
         {
+            int? index = null;
             for (int i = 0; i < Sequence.Length; i++)
             {
                 if (Sequence[i] == SearchValue)
                 {
-                    Index = i;
+                    index = i;
                     break;
-                }
-                else
-                {
-                    Index = null;
-                }
-                
+                }   
             }
 
-            return Index;
+            return index;
         }
     }
 }

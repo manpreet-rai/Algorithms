@@ -17,23 +17,20 @@ namespace Algorithms
             // Refer InsertionSort.cs
             InsertionSort insertionSort = new InsertionSort(sequence);
             int[] increasingSortedArray = insertionSort.IncreasingSort();
-            Console.Write("Insertion Sorted Increasing Sequence: ");
-            PrintIntArray(increasingSortedArray);
+            PrintIntArray(increasingSortedArray, "Insertion Sorted Increasing Sequence: ", true);
 
 
             // Question 2.1-1
             // Refer InsertionSort.cs
             InsertionSort insertionSort2 = new InsertionSort(new int[] {31, 41, 59, 26, 41, 58});
             int[] increasingSortedArray2 = insertionSort2.IncreasingSort();
-            Console.Write("Insertion Sorted Increasing Sequence on [31, 41, 59, 26, 41, 58]: ");
-            PrintIntArray(increasingSortedArray2);
+            PrintIntArray(increasingSortedArray2, "Insertion Sorted Increasing Sequence on [31, 41, 59, 26, 41, 58]: ", true);
 
 
             // Question 2.1-2
             // Refer InsertionSort.cs
             int[] decreasingSortedArray = insertionSort.DecreasingSort(); // Uses Algorithm 2.1 instance and sequence
-            Console.Write("Insertion Sorted Decreasing Sequence: ");
-            PrintIntArray(decreasingSortedArray);
+            PrintIntArray(decreasingSortedArray, "Insertion Sorted Decreasing Sequence: ", true);
 
 
             // Question 2.1-3
@@ -51,16 +48,24 @@ namespace Algorithms
             int[] arrayA = new int[8] { 0, 1, 1, 0, 1, 1, 1, 1 };
             int[] arrayB = new int[8] { 1, 1, 1, 0, 0, 0, 1, 1 };
             NBitAddition nBitAddition = new NBitAddition(arrayA, arrayB);
-            Console.WriteLine($"Array A:    [ {string.Join(", ", arrayA)} ]");
-            Console.WriteLine($"Array B:    [ {string.Join(", ", arrayB)} ]");
-            Console.WriteLine($"Array C: [ {string.Join(", ", nBitAddition.Sum())} ]");
+            PrintIntArray(arrayA, "Array A:    ");
+            PrintIntArray(arrayB, "Array B:    ");
+            PrintIntArray(nBitAddition.Sum(), "Array C: ", true);
+
+
+            // Question 2.2-2
+            // Refer SelectionSort.cs
+            sequence = new int[] { 41, 59, 26, 41, 58 };
+            PrintIntArray(sequence, "Current Sequence: ");
+            SelectionSort selectionSort = new SelectionSort(sequence);
+            PrintIntArray(selectionSort.Sort(), "Selection Sorted Sequence: ", true);
 
 
             // Helper Utility
-            static void PrintIntArray(int[] sequence)
+            static void PrintIntArray(int[] sequence, string message = "", bool pattern = false)
             {
-                Console.WriteLine($"[ {string.Join(", ", sequence)} ]");
-                Console.WriteLine("**********************************");
+                Console.WriteLine($"{message}[ {string.Join(", ", sequence)} ]");
+                if ( pattern ) Console.WriteLine("**********************************");
             }
         }
     }
