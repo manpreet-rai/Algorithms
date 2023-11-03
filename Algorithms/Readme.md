@@ -13,5 +13,5 @@ Two N-bit arrays are added and results are stored in N+1 bit array where left mo
 
 ## 4. Selection Sort
 ![Selection Sort](./Assets/SelectionSort.png)
-Selection Sort is like Insertion Sort but in this, an element is picked from the pile starting from left side, and compared against the right sided elements to find any other element smaller than it, if found the element is swapped with it.
+Selection Sort is like Insertion Sort but in this, an element is picked from the pile starting from left side, and compared against the right sided elements to find any other element smallest than it, if found the element is swapped with it.
 
