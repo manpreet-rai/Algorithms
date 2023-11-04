@@ -2,13 +2,7 @@
 {
     internal class InsertionSort
     {
-        public int[] Sequence {  get; set; }
-
-        public InsertionSort() { }
-
-        public InsertionSort(int[] sequenceArray) {  Sequence = sequenceArray; }
-
-        public int[] IncreasingSort()
+        public int[] IncreasingSort(int[] Sequence)
         {
             for (int j = 1; j < Sequence.Length; j++)
             {
@@ -25,7 +19,7 @@
             return Sequence;
         }
 
-        public int[] DecreasingSort()
+        public int[] DecreasingSort(int[] Sequence)
         {
             for (int j = 1; j < Sequence.Length; j++)
             {

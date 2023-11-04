@@ -2,13 +2,7 @@
 {
     internal class SelectionSort
     {
-        public int[] Sequence {  get; set; }
-
-        public SelectionSort() { }
-
-        public SelectionSort(int[] sequenceArray) {  Sequence = sequenceArray; }
-
-        public int[] Sort()
+        public int[] Sort(int[] Sequence)
         {
             for (int i = 0; i < Sequence.Length - 1; i++)
             {

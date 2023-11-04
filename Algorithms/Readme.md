@@ -15,3 +15,8 @@ Two N-bit arrays are added and results are stored in N+1 bit array where left mo
 ![Selection Sort](./Assets/SelectionSort.png)
 Selection Sort is like Insertion Sort but in this, an element is picked from the pile starting from left side, and compared against the right sided elements to find any other element smallest than it, if found the element is swapped with it.
 
+Note: Whenever we use swap like in Selection Sort or Bubble Sort, anything involving swapping, point to remember is we don't need to run loop till the last value, since with whom we want to swap the last element, it is already swapped at some point earlier, hence save yourself a loop condition and make sure to run the loop just about the Length - 1.
+
+## 5. Merge Sort
+
+## 6. Bubble Sort
