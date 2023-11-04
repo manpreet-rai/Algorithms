@@ -18,18 +18,11 @@
             
             while (i < n1 && j < n2)
             {
-                if (left[i] <= right[j])
-                {
-                    A[k] = left[i];
-                    i++;
-                }
+                if (left[i] <= right[j]) 
+                    A[k++] = left[i++];
+                
                 else
-                {
-                    A[k] = right[j];
-                    j++;
-                }
-
-                k++;
+                    A[k++] = right[j++];
             }
 
             while (i < n1)
