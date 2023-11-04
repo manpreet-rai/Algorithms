@@ -68,12 +68,22 @@ namespace Algorithms
             PrintIntArray(mergeSort.Sort(sequence, 0, sequence.Length - 1), "Merge Sorted Sequence: ", true);
 
 
+            // Algorithm 2.3-5
+            // Refer BinarySearch.cs
+            sequence = new int[] { 3, 9, 26, 38, 41, 49, 52, 57 };
+            PrintIntArray(sequence, "Current Sequence: ");
+            BinarySearch binarySearch = new BinarySearch();
+            Console.WriteLine($"Index of {26} in [{string.Join(", ", sequence)}] is: {binarySearch.Search(sequence, 26, 0, sequence.Length - 1)}");
+            Console.WriteLine($"Index of {98} in [{string.Join(", ", sequence)}] is: {binarySearch.Search(sequence, 98, 0, sequence.Length - 1)}");
+            Console.WriteLine("**********************************");
+
             // Algorithm 2-2
             // Refer BubbleSort.cs
             sequence = new int[] { 3, 41, 52, 26, 38, 57, 9, 49 };
             PrintIntArray(sequence, "Current Sequence: ");
             BubbleSort bubbleSort = new BubbleSort();
             PrintIntArray(bubbleSort.Sort(sequence), "Bubble Sorted Sequence: ", true);
+
 
             // Helper Utility
             static void PrintIntArray(int[] sequence, string message = "", bool pattern = false)

@@ -94,7 +94,27 @@ Selection Sort is like Insertion Sort but in this, an element is picked from the
 
 Note: Whenever we use swap like in Selection Sort or Bubble Sort, anything involving swapping, point to remember is we don't need to run loop till the last value, since with whom we want to swap the last element, it is already swapped at some point earlier, hence save yourself a loop condition and make sure to run the loop just about the Length - 1.
 
-## 5. Merge Sort
+## 5. Bubble Sort
+```c#
+int[] Sort(int[] sequence)
+{
+    for (int i = 0; i < sequence.Length - 1; i++)
+    {
+        for (int j = sequence.Length - 1; j > i; j--)
+        {
+            if (sequence[j] < sequence[j - 1])
+            {
+                (sequence[j], sequence[j - 1]) = (sequence[j - 1], sequence[j]);
+            }
+        }
+    }
+
+    return sequence;
+}
+```
+
+## 6. Merge Sort
+Note: It is required to specify a condition for breaking recursion, to prevent endless trap. So in all recursion based algorithms like Merge Sort, Binary Search etc., specify a breaking condition or breakpoint for recursion at the starting.
 ```c#
 void Merge(int[] A, int P, int Q, int R)
 {
@@ -131,7 +151,7 @@ void Merge(int[] A, int P, int Q, int R)
 
 public int[] Sort(int[] A, int P, int R)
 {
-    if (P < R)
+    if (P < R) // Recursion break condition: P >= R
     {
         int Q = (P + R)/2;
 
@@ -145,21 +165,25 @@ public int[] Sort(int[] A, int P, int R)
 }
 ```
 
-## 6. Bubble Sort
-```c#
-int[] Sort(int[] sequence)
-{
-    for (int i = 0; i < sequence.Length - 1; i++)
-    {
-        for (int j = sequence.Length - 1; j > i; j--)
-        {
-            if (sequence[j] < sequence[j - 1])
-            {
-                (sequence[j], sequence[j - 1]) = (sequence[j - 1], sequence[j]);
-            }
-        }
-    }
 
-    return sequence;
+
+## 7. Binary Search
+```c#
+int? Search(int[] A, int key, int P, int R) // This BinarySearch operates on sorted arrays only
+{
+    if (P > R) return null;
+    else
+    {
+        int Q = (P + R) / 2;
+
+        if (A[Q] == key)
+            return Q;
+        else if (A[Q] < key)
+            return Search(A, key, Q + 1, R);
+        else
+            return Search(A, key, P, Q - 1);
+    }
 }
 ```
+
+## 8. Max Sub-Array
