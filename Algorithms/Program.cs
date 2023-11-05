@@ -85,6 +85,15 @@ namespace Algorithms
             PrintIntArray(bubbleSort.Sort(sequence), "Bubble Sorted Sequence: ", true);
 
 
+            // Algorithm 3.1
+            // Refer MaxSubArray.cs
+            sequence = new int[] { 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7 };
+            PrintIntArray(sequence, "Current Sequence: ");
+            MaxSubArray maxSubArray = new MaxSubArray();
+            (int min, int max, int sum) = maxSubArray.FindMaxSubArray(sequence, 0, 15);
+            PrintIntArray(sequence[min..(max + 1)], $"Max Sub Array with sum = {sum}: ", true);
+
+
             // Helper Utility
             static void PrintIntArray(int[] sequence, string message = "", bool pattern = false)
             {
