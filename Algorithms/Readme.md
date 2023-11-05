@@ -95,6 +95,7 @@ Selection Sort is like Insertion Sort but in this, an element is picked from the
 Note: Whenever we use swap like in Selection Sort or Bubble Sort, anything involving swapping, point to remember is we don't need to run loop till the last value, since with whom we want to swap the last element, it is already swapped at some point earlier, hence save yourself a loop condition and make sure to run the loop just about the Length - 1.
 
 ## 5. Bubble Sort
+![Selection Sort](./Assets/BubbleSort.png)
 ```c#
 int[] Sort(int[] sequence)
 {
@@ -164,8 +165,6 @@ public int[] Sort(int[] A, int P, int R)
     return A;
 }
 ```
-
-
 
 ## 7. Binary Search
 ```c#
