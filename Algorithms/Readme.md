@@ -230,3 +230,51 @@ int? Search(int[] A, int key, int P, int R) // This BinarySearch operates on sor
         return (crossLow, crossHigh, crossSum);
 }
 ```
+
+## 9. Heap Sort
+```c#
+int Left(int i) => 2 * i + 1;
+int Right(int i) => 2 * i + 2;
+int _heapSize = 8;
+
+void MaxHeapify(int[] a, int i)
+{
+    int l = Left(i);
+    int r = Right(i);
+    int largest;
+
+    if (l < _heapSize && a[l] > a[i])
+        largest = l;
+    else
+        largest = i;
+
+    if (r < _heapSize && a[r] > a[largest])
+        largest = r;
+
+    if (largest != i)
+    {
+        (a[i], a[largest]) = (a[largest], a[i]);
+        MaxHeapify(a, largest);
+    }
+}
+
+void BuildMaxHeap(int[] a)
+{
+    for (int i = (_heapSize - 1) / 2; i >= 0; i--)
+        MaxHeapify(a, i);
+}
+
+int[] Sort(int[] a)
+{
+    BuildMaxHeap(a);
+
+    for (int i = (_heapSize - 1); i > 0; i--)
+    {
+        (a[0], a[i]) = (a[i], a[0]);
+        _heapSize--;
+        MaxHeapify(a, 0);
+    }
+
+    return a;
+}
+```
