@@ -1,4 +1,5 @@
-﻿using Algorithms;
+﻿using System;
+using Algorithms;
 
 namespace DataStructures
 {
@@ -46,8 +47,13 @@ namespace DataStructures
 
         public static void Init(ref int[] a)
         {
+            int[] temp = Array.Empty<int>();
+            for (int i = 0; i < a.Length; i++)
+            {
+                Insert(ref temp, a[i]);
+            }
 
+            a = temp;
         }
-
     }
 }
