@@ -8,7 +8,7 @@ namespace Algorithms
 {
     internal class BubbleSort
     {
-        public int[] Sort(int[] sequence)
+        public static int[] Sort(int[] sequence)
         {
             for (int i = 0; i < sequence.Length - 1; i++)
             {

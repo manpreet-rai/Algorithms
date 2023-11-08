@@ -2,7 +2,7 @@
 {
     internal class LinearSearch
     {
-        public int? Search(int[] Sequence, int SearchValue)
+        public static int? Search(int[] Sequence, int SearchValue)
         {
             int? index = null;
             for (int i = 0; i < Sequence.Length; i++)

@@ -2,19 +2,19 @@
 {
     internal class BinarySearch
     {
-        public int? Search(int[] A, int key, int P, int R) // This BinarySearch operates on sorted arrays only
+        public static int? Search(int[] a, int key, int p, int r) // This BinarySearch operates on sorted arrays only
         {
-            if (P > R) return null;
+            if (p > r) return null;
             else
             {
-                int Q = (P + R) / 2;
+                int q = (p + r) / 2;
 
-                if (A[Q] == key)
-                    return Q;
-                else if (A[Q] < key)
-                    return Search(A, key, Q + 1, R);
+                if (a[q] == key)
+                    return q;
+                else if (a[q] < key)
+                    return Search(a, key, q + 1, r);
                 else
-                    return Search(A, key, P, Q - 1);
+                    return Search(a, key, p, q - 1);
             }
         }
     }

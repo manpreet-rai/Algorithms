@@ -4,8 +4,8 @@ namespace Algorithms
 {
     internal class HeapSort
     {
-        private int Left(int i) => 2 * i + 1;
-        private int Right(int i) => 2 * i + 2;
+        private static int Left(int i) => 2 * i + 1;
+        private static int Right(int i) => 2 * i + 2;
         private int _heapSize = 8;
 
         private void MaxHeapify(int[] a, int i)

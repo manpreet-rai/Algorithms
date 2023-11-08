@@ -2,7 +2,7 @@
 
 namespace Algorithms
 {
-    internal class Program
+    internal static class Program
     {
         static void Main()
         {
@@ -15,30 +15,27 @@ namespace Algorithms
 
             // Algorithm 2.1
             // Refer InsertionSort.cs
-            InsertionSort insertionSort = new InsertionSort();
-            int[] increasingSortedArray = insertionSort.IncreasingSort(sequence);
+            int[] increasingSortedArray = InsertionSort.IncreasingSort(sequence);
             PrintIntArray(increasingSortedArray, "Insertion Sorted Increasing Sequence: ", true);
 
 
             // Question 2.1-1
             // Refer InsertionSort.cs
-            InsertionSort insertionSort2 = new InsertionSort();
-            int[] increasingSortedArray2 = insertionSort2.IncreasingSort(new[] { 31, 41, 59, 26, 41, 58 });
+            int[] increasingSortedArray2 = InsertionSort.IncreasingSort(new[] { 31, 41, 59, 26, 41, 58 });
             PrintIntArray(increasingSortedArray2, "Insertion Sorted Increasing Sequence on [31, 41, 59, 26, 41, 58]: ", true);
 
 
             // Question 2.1-2
             // Refer InsertionSort.cs
-            int[] decreasingSortedArray = insertionSort.DecreasingSort(sequence); // Uses Algorithm 2.1 instance and sequence
+            int[] decreasingSortedArray = InsertionSort.DecreasingSort(sequence); // Uses Algorithm 2.1 instance and sequence
             PrintIntArray(decreasingSortedArray, "Insertion Sorted Decreasing Sequence: ", true);
 
 
             // Question 2.1-3
             // Refer LinearSearch.cs
             int[] searchSequence = { 31, 41, 59, 26, 41, 58 };
-            LinearSearch linearSearch = new LinearSearch();
-            Console.WriteLine($"Index of {41} in [{string.Join(", ", searchSequence)}] is: {linearSearch.Search(searchSequence, 41)}");
-            Console.WriteLine($"Index of {98} in [{string.Join(", ", searchSequence)}] is: {linearSearch.Search(searchSequence, 98)}");
+            Console.WriteLine($"Index of {41} in [{string.Join(", ", searchSequence)}] is: {LinearSearch.Search(searchSequence, 41)}");
+            Console.WriteLine($"Index of {98} in [{string.Join(", ", searchSequence)}] is: {LinearSearch.Search(searchSequence, 98)}");
             Console.WriteLine("**********************************");
 
 
@@ -56,41 +53,36 @@ namespace Algorithms
             // Refer SelectionSort.cs
             sequence = new[] { 41, 59, 26, 41, 58 };
             PrintIntArray(sequence, "Current Sequence: ");
-            SelectionSort selectionSort = new SelectionSort();
-            PrintIntArray(selectionSort.Sort(sequence), "Selection Sorted Sequence: ", true);
+            PrintIntArray(SelectionSort.Sort(sequence), "Selection Sorted Sequence: ", true);
 
 
             // Question 2.3-1
             // Refer MergeSort.cs
             sequence = new[] { 3, 41, 52, 26, 38, 57, 9, 49 };
             PrintIntArray(sequence, "Current Sequence: ");
-            MergeSort mergeSort = new MergeSort();
-            PrintIntArray(mergeSort.Sort(sequence, 0, sequence.Length - 1), "Merge Sorted Sequence: ", true);
+            PrintIntArray(MergeSort.Sort(sequence, 0, sequence.Length - 1), "Merge Sorted Sequence: ", true);
 
 
             // Algorithm 2.3-5
             // Refer BinarySearch.cs
             sequence = new[] { 3, 9, 26, 38, 41, 49, 52, 57 };
             PrintIntArray(sequence, "Current Sequence: ");
-            BinarySearch binarySearch = new BinarySearch();
-            Console.WriteLine($"Index of {26} in [{string.Join(", ", sequence)}] is: {binarySearch.Search(sequence, 26, 0, sequence.Length - 1)}");
-            Console.WriteLine($"Index of {98} in [{string.Join(", ", sequence)}] is: {binarySearch.Search(sequence, 98, 0, sequence.Length - 1)}");
+            Console.WriteLine($"Index of {26} in [{string.Join(", ", sequence)}] is: {BinarySearch.Search(sequence, 26, 0, sequence.Length - 1)}");
+            Console.WriteLine($"Index of {98} in [{string.Join(", ", sequence)}] is: {BinarySearch.Search(sequence, 98, 0, sequence.Length - 1)}");
             Console.WriteLine("**********************************");
 
             // Algorithm 2-2
             // Refer BubbleSort.cs
             sequence = new[] { 3, 41, 52, 26, 38, 57, 9, 49 };
             PrintIntArray(sequence, "Current Sequence: ");
-            BubbleSort bubbleSort = new BubbleSort();
-            PrintIntArray(bubbleSort.Sort(sequence), "Bubble Sorted Sequence: ", true);
+            PrintIntArray(BubbleSort.Sort(sequence), "Bubble Sorted Sequence: ", true);
 
 
             // Algorithm 3.1
             // Refer MaxSubArray.cs
             sequence = new[] { 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7 };
             PrintIntArray(sequence, "Current Sequence: ");
-            MaxSubArray maxSubArray = new MaxSubArray();
-            (int min, int max, int sum) = maxSubArray.FindMaxSubArray(sequence, 0, 15);
+            (int min, int max, int sum) = MaxSubArray.FindMaxSubArray(sequence, 0, 15);
             PrintIntArray(sequence[min..(max + 1)], $"Max Sub Array with sum = {sum}: ", true);
 
 

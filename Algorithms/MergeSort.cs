@@ -2,52 +2,52 @@
 {
     internal class MergeSort
     {
-        private void Merge(int[] A, int P, int Q, int R)
+        private static void Merge(int[] a, int p, int q, int r)
         {
-            int n1 = Q - P + 1;
-            int n2 = R - Q;
+            int n1 = q - p + 1;
+            int n2 = r - q;
 
             int[] left = new int[n1];
             int[] right = new int[n2];
 
-            int i, j, k = P;
-            for (i = 0; i < n1; i++) left[i] = A[P + i];
-            for (j = 0; j < n2; j++) right[j] = A[Q + j + 1];
+            int i, j, k = p;
+            for (i = 0; i < n1; i++) left[i] = a[p + i];
+            for (j = 0; j < n2; j++) right[j] = a[q + j + 1];
 
             i = j = 0;
             
             while (i < n1 && j < n2)
             {
                 if (left[i] <= right[j]) 
-                    A[k++] = left[i++];
+                    a[k++] = left[i++];
                 
                 else
-                    A[k++] = right[j++];
+                    a[k++] = right[j++];
             }
 
             while (i < n1)
             {
-                A[k++] = left[i++];
+                a[k++] = left[i++];
             }
             while (j < n2)
             {
-                A[k++] = right[j++];
+                a[k++] = right[j++];
             }
         }
 
-        public int[] Sort(int[] A, int P, int R)
+        public static int[] Sort(int[] a, int p, int r)
         {
-            if (P < R)
+            if (p < r)
             {
-                int Q = (P + R)/2;
+                int q = (p + r)/2;
 
-                Sort(A, P, Q);
-                Sort(A, Q + 1, R);
+                Sort(a, p, q);
+                Sort(a, q + 1, r);
 
-                Merge(A, P, Q, R);
+                Merge(a, p, q, r);
             }
 
-            return A;
+            return a;
         }
     }
 }

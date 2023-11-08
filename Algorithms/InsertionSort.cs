@@ -2,38 +2,38 @@
 {
     internal class InsertionSort
     {
-        public int[] IncreasingSort(int[] Sequence)
+        public static int[] IncreasingSort(int[] sequence)
         {
-            for (int j = 1; j < Sequence.Length; j++)
+            for (int j = 1; j < sequence.Length; j++)
             {
-                int key = Sequence[j];
+                int key = sequence[j];
                 int i = j - 1;
-                while (i >= 0 && Sequence[i] > key)
+                while (i >= 0 && sequence[i] > key)
                 {
-                    Sequence[i + 1] = Sequence[i];
+                    sequence[i + 1] = sequence[i];
                     i--;
                 }
-                Sequence[i + 1] = key;
+                sequence[i + 1] = key;
             }
 
-            return Sequence;
+            return sequence;
         }
 
-        public int[] DecreasingSort(int[] Sequence)
+        public static int[] DecreasingSort(int[] sequence)
         {
-            for (int j = 1; j < Sequence.Length; j++)
+            for (int j = 1; j < sequence.Length; j++)
             {
-                int key = Sequence[j];
+                int key = sequence[j];
                 int i = j - 1;
-                while (i >= 0 && Sequence[i] < key)
+                while (i >= 0 && sequence[i] < key)
                 {
-                    Sequence[i + 1] = Sequence[i];
+                    sequence[i + 1] = sequence[i];
                     i--;
                 }
-                Sequence[i + 1] = key;
+                sequence[i + 1] = key;
             }
 
-            return Sequence;
+            return sequence;
         }
     }
 }

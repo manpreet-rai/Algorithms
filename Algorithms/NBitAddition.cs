@@ -2,10 +2,10 @@
 {
     internal class NBitAddition
     {
-        public int[] A {  get; set; } = new int[8]; // Size 8 bits
-        public int[] B { get; set; } = new int[8]; // Size 8 bits
+        private int[] A {  get; set; } = new int[8]; // Size 8 bits
+        private int[] B { get; set; } = new int[8]; // Size 8 bits
 
-        public int[] C { get; set; } = new int[9]; // Size 9 bits, i.e., 8 for sum, 1 for carry
+        private int[] C { get; set; } = new int[9]; // Size 9 bits, i.e., 8 for sum, 1 for carry
 
         public NBitAddition() { }
         public NBitAddition(int[] a, int[] b)

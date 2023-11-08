@@ -2,24 +2,24 @@
 {
     internal class SelectionSort
     {
-        public int[] Sort(int[] Sequence)
+        public static int[] Sort(int[] sequence)
         {
-            for (int i = 0; i < Sequence.Length - 1; i++)
+            for (int i = 0; i < sequence.Length - 1; i++)
             {
                 int min = i;
                 
-                for (int j = i + 1; j < Sequence.Length; j++)
+                for (int j = i + 1; j < sequence.Length; j++)
                 {
-                    if (Sequence[j] < Sequence[min])
+                    if (sequence[j] < sequence[min])
                     {
                         min = j;
                     }
                 }
 
-                (Sequence[min], Sequence[i]) = (Sequence[i], Sequence[min]);
+                (sequence[min], sequence[i]) = (sequence[i], sequence[min]);
             }
 
-            return Sequence;
+            return sequence;
         }
     }
 }

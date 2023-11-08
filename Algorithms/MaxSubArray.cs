@@ -8,12 +8,12 @@ namespace Algorithms
 {
     internal class MaxSubArray
     {
-        private (int left, int right, int sum) FindMidCrossingArray(int[] A, int P, int Q, int R)
+        private static (int left, int right, int sum) FindMidCrossingArray(int[] a, int p, int q, int r)
         {
-            int lSum = int.MinValue, rSum = int.MinValue, sum = 0, left = P, right = R;
-            for (int i = Q; i >= P; i--)
+            int lSum = int.MinValue, rSum = int.MinValue, sum = 0, left = p, right = r;
+            for (int i = q; i >= p; i--)
             {
-                sum += A[i];
+                sum += a[i];
                 if (sum > lSum)
                 {
                     lSum = sum;
@@ -21,9 +21,9 @@ namespace Algorithms
                 }
             }
             sum = 0;
-            for (int i = Q + 1; i <= R; i++)
+            for (int i = q + 1; i <= r; i++)
             {
-                sum += A[i];
+                sum += a[i];
                 if (sum > rSum)
                 {
                     rSum = sum;
@@ -34,14 +34,14 @@ namespace Algorithms
             return (left, right, lSum + rSum);
         }
 
-        public (int left, int right, int sum) FindMaxSubArray(int[] A, int P, int R)
+        public static (int left, int right, int sum) FindMaxSubArray(int[] a, int p, int r)
         {
-            if (P == R) return (P, R, A[P]);
+            if (p == r) return (p, r, a[p]);
 
-            int Q = (P + R) / 2;
-            (int leftLow, int leftHigh, int leftSum) = FindMaxSubArray(A, P, Q);
-            (int rightLow, int rightHigh, int rightSum) = FindMaxSubArray(A, Q + 1, R);
-            (int crossLow, int crossHigh, int crossSum) = FindMidCrossingArray(A, P, Q, R);
+            int q = (p + r) / 2;
+            (int leftLow, int leftHigh, int leftSum) = FindMaxSubArray(a, p, q);
+            (int rightLow, int rightHigh, int rightSum) = FindMaxSubArray(a, q + 1, r);
+            (int crossLow, int crossHigh, int crossSum) = FindMidCrossingArray(a, p, q, r);
 
             if (leftSum >= rightSum && leftSum >= crossSum)
                 return (leftLow, leftHigh, leftSum);
