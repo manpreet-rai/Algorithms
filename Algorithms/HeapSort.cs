@@ -1,25 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithms
 {
-    internal class HeapSort
+    public class HeapSort
     {
-        private static int Left(int i) => 2 * i + 1;
-        private static int Right(int i) => 2 * i + 2;
-        private int _heapSize = 8;
+        public static int Parent(int i) => i / 2;
+        public static int Left(int i) => 2 * i + 1;
+        public static int Right(int i) => 2 * i + 2;
+        public static int HeapSize = 8;
 
-        private void MaxHeapify(int[] a, int i)
+        public static void MaxHeapify(int[] a, int i)
         {
             int l = Left(i);
             int r = Right(i);
             int largest;
 
-            if (l < _heapSize && a[l] > a[i])
+            if (l < HeapSize && a[l] > a[i])
                 largest = l;
             else
                 largest = i;
 
-            if (r < _heapSize && a[r] > a[largest])
+            if (r < HeapSize && a[r] > a[largest])
                 largest = r;
 
             if (largest != i)
@@ -29,20 +31,20 @@ namespace Algorithms
             }
         }
 
-        private void BuildMaxHeap(int[] a)
+        public static void BuildMaxHeap(int[] a)
         {
-            for (int i = (_heapSize - 1) / 2; i >= 0; i--)
+            for (int i = (HeapSize - 1) / 2; i >= 0; i--)
                 MaxHeapify(a, i);
         }
 
-        public int[] Sort(int[] a)
+        public static int[] Sort(int[] a)
         {
             BuildMaxHeap(a);
 
-            for (int i = (_heapSize - 1); i > 0; i--)
+            for (int i = (HeapSize - 1); i > 0; i--)
             {
                 (a[0], a[i]) = (a[i], a[0]);
-                _heapSize--;
+                HeapSize--;
                 MaxHeapify(a, 0);
             }
 

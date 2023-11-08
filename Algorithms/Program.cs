@@ -2,7 +2,7 @@
 
 namespace Algorithms
 {
-    internal static class Program
+    public static class Program
     {
         static void Main()
         {
@@ -90,15 +90,16 @@ namespace Algorithms
             // Refer HeapSort.cs
             sequence = new[] { 3, 41, 52, 26, 38, 57, 9, 49 };
             PrintIntArray(sequence, "Current Sequence");
-            HeapSort heapSort = new HeapSort();
-            PrintIntArray(heapSort.Sort(sequence), "Max Heap Sorted: ", true);
+            PrintIntArray(HeapSort.Sort(sequence), "Max Heap Sorted: ", true);
 
-            // Helper Utility
-            static void PrintIntArray(int[] sequence, string message = "", bool pattern = false)
-            {
-                Console.WriteLine($"{message}[ {string.Join(", ", sequence)} ]");
-                if ( pattern ) Console.WriteLine("**********************************");
-            }
+            
+        }
+
+        // Helper Utility
+        public static void PrintIntArray(int[] sequence, string message = "", bool pattern = false)
+        {
+            Console.WriteLine($"{message}[ {string.Join(", ", sequence)} ]");
+            if (pattern) Console.WriteLine("**********************************");
         }
     }
 }
