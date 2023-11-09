@@ -278,3 +278,35 @@ int[] Sort(int[] a)
     return a;
 }
 ```
+
+## 10. Quick Sort
+```c#
+int Partition(int[] a, int p, int r)
+{
+    int x = a[r];
+    int i = p - 1;
+    for (int j = p; j <= r - 1; j++)
+    {
+        if (a[j] <= x)
+        {
+            i++;
+            (a[i], a[j]) = (a[j], a[i]);
+        }
+    }
+
+    (a[i + 1], a[r]) = (a[r], a[i + 1]);
+    return i + 1;
+}
+
+int[] Sort(int[] a, int p, int r)
+{
+    if (p < r)
+    {
+        int q = Partition(a, p, r);
+        Sort(a, p, q - 1);
+        Sort(a, q + 1, r);
+    }
+            
+    return a;
+}
+```

@@ -92,8 +92,14 @@ namespace Algorithms
             PrintIntArray(sequence, "Current Sequence");
             PrintIntArray(HeapSort.Sort(sequence), "Max Heap Sorted: ", true);
 
-            
+
+            // Algorithm 7.1
+            // Refer QuickSort.cs
+            sequence = new[] { 3, 41, 52, 26, 38, 57, 9, 49 };
+            PrintIntArray(sequence, "Current Sequence");
+            PrintIntArray(QuickSort.Sort(sequence, 0, sequence.Length - 1), "Quick Sorted: ", true);
         }
+
 
         // Helper Utility
         public static void PrintIntArray(int[] sequence, string message = "", bool pattern = false)
