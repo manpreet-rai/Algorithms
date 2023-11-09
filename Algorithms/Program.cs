@@ -98,6 +98,12 @@ namespace Algorithms
             sequence = new[] { 3, 41, 52, 26, 38, 57, 9, 49 };
             PrintIntArray(sequence, "Current Sequence");
             PrintIntArray(QuickSort.Sort(sequence, 0, sequence.Length - 1), "Quick Sorted: ", true);
+
+            // Algorithm 8.1
+            // Refer CountSort.cs
+            sequence = new[] { 6, 0, 2, 0, 1, 3, 4, 6, 1, 3, 2 };
+            PrintIntArray(sequence, "Current Sequence");
+            PrintIntArray(CountSort.Sort(sequence), "Count Sorted: ", true);
         }
 
 
