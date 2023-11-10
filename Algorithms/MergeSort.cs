@@ -2,17 +2,17 @@
 {
     internal class MergeSort
     {
-        private static void Merge(int[] a, int p, int q, int r)
+        private static void Merge(int[] a, int min, int mid, int max)
         {
-            int n1 = q - p + 1;
-            int n2 = r - q;
+            int n1 = mid - min + 1;
+            int n2 = max - mid;
 
             int[] left = new int[n1];
             int[] right = new int[n2];
 
-            int i, j, k = p;
-            for (i = 0; i < n1; i++) left[i] = a[p + i];
-            for (j = 0; j < n2; j++) right[j] = a[q + j + 1];
+            int i, j, k = min;
+            for (i = 0; i < n1; i++) left[i] = a[min + i];
+            for (j = 0; j < n2; j++) right[j] = a[mid + j + 1];
 
             i = j = 0;
             
@@ -35,16 +35,16 @@
             }
         }
 
-        public static int[] Sort(int[] a, int p, int r)
+        public static int[] Sort(int[] a, int min, int max)
         {
-            if (p < r)
+            if (min < max)
             {
-                int q = (p + r)/2;
+                int mid = (min + max)/2;
 
-                Sort(a, p, q);
-                Sort(a, q + 1, r);
+                Sort(a, min, mid);
+                Sort(a, mid + 1, max);
 
-                Merge(a, p, q, r);
+                Merge(a, min, mid, max);
             }
 
             return a;

@@ -2,11 +2,11 @@
 {
     internal class QuickSort
     {
-        private static int Partition(int[] a, int p, int r)
+        private static int Partition(int[] a, int min, int max)
         {
-            int x = a[r];
-            int i = p - 1;
-            for (int j = p; j <= r - 1; j++)
+            int x = a[max];
+            int i = min - 1;
+            for (int j = min; j <= max - 1; j++)
             {
                 if (a[j] <= x)
                 {
@@ -15,17 +15,17 @@
                 }
             }
 
-            (a[i + 1], a[r]) = (a[r], a[i + 1]);
+            (a[i + 1], a[max]) = (a[max], a[i + 1]);
             return i + 1;
         }
 
-        public static int[] Sort(int[] a, int p, int r)
+        public static int[] Sort(int[] a, int min, int max)
         {
-            if (p < r)
+            if (min < max)
             {
-                int q = Partition(a, p, r);
-                Sort(a, p, q - 1);
-                Sort(a, q + 1, r);
+                int mid = Partition(a, min, max);
+                Sort(a, min, mid - 1);
+                Sort(a, mid + 1, max);
             }
             
             return a;

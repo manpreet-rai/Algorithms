@@ -1,9 +1,25 @@
-﻿# Algorithms & Data Structures
-~ From Introduction to Algorithms, CLRS, 3rd Ed.
+\documentclass[a4paper,12pt]{article}
 
-## 1. Insertion Sort
-![Insertion Sort](./Assets/InsertionSort.png)
-```c#
+% packages
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm,
+bottom=3cm, bindingoffset=1cm]{geometry}
+
+% declarations
+\title{Algorithms\thanks{Cormen T. H. et al., \emph{Introduction to Algorithms}, Ed. 3rd.}}
+\author{Manpreet Rai}
+\date{November 10, 2023}
+
+\begin{document}
+	\maketitle
+	
+	\section{Insertion Sort}
+	Insertion Sort handles sorting in a very easy way, scanning from left to right, one element at a time. It picks an element, checks it to its left side, if found smaller to the left element it shifts the left elements by one towards right and places picked element on left of them until there is no element on left side greater than it.
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int[] Sort(int[] sequence)
 {
 	for (int j = 1; j < sequence.Length; j++)
@@ -20,11 +36,14 @@ int[] Sort(int[] sequence)
 	
 	return sequence;
 }
-```
-Insertion Sort handles sorting in a very easy way, scanning from left to right, one element at a time. It picks an element, checks it to its left side, if found smaller to the left element it shifts the left elements by one towards right and places picked element on left of them until there is no element on left side greater than it.
-
-## 2. Linear Search
-```c#
+	\end{minted}
+	
+	\section{Linear Search}
+	Linear Search is just returning the index of an element if it is found among the array of elements, if not found Null is returned.
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int? Search(int[] sequence, int searchValue)
 {
 	int? index = null;
@@ -39,11 +58,14 @@ int? Search(int[] sequence, int searchValue)
 	
 	return index;
 }
-```
-Linear Search is just returning the index of an element if it is found among the array of elements, if not found Null is returned.
-
-## 3. N-Bit Addition
-```c#
+	\end{minted}
+	
+	\section{N-Bit Addition}
+	Two N-bit arrays are added and results are stored in N+1 bit array where left most digit shows the carry.
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int[] A = new int[8];
 int[] B = new int[8];
 int[] C = new int[9];
@@ -64,12 +86,16 @@ public int[] Sum()
 	
 	return C;
 }
-```
-Two N-bit arrays are added and results are stored in N+1 bit array where left most digit shows the carry.
-
-## 4. Selection Sort
-![Selection Sort](./Assets/SelectionSort.png)
-```c#
+	\end{minted}
+	
+	\section{Selection Sort}
+	Selection Sort is like Insertion Sort but in this, an element is picked from the pile starting from left side, and compared against the right sided elements to find any other element smallest than it, if found the element is swapped with it.
+	
+	\emph{Note}: Whenever we use swap like in Selection Sort or Bubble Sort, anything involving swapping, point to remember is we don't need to run loop till the last value, since with whom we want to swap the last element, it is already swapped at some point earlier, hence save yourself a loop condition and make sure to run the loop just about the Length - 1.
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int[] Sort(int[] sequence)
 {
 	for (int i = 0; i < sequence.Length - 1; i++)
@@ -89,14 +115,13 @@ int[] Sort(int[] sequence)
 	
 	return sequence;
 }
-```
-Selection Sort is like Insertion Sort but in this, an element is picked from the pile starting from left side, and compared against the right sided elements to find any other element smallest than it, if found the element is swapped with it.
-
-Note: Whenever we use swap like in Selection Sort or Bubble Sort, anything involving swapping, point to remember is we don't need to run loop till the last value, since with whom we want to swap the last element, it is already swapped at some point earlier, hence save yourself a loop condition and make sure to run the loop just about the Length - 1.
-
-## 5. Bubble Sort
-![Selection Sort](./Assets/BubbleSort.png)
-```c#
+	\end{minted}
+	
+	\section{Bubble Sort}
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int[] Sort(int[] sequence)
 {
 	for (int i = 0; i < sequence.Length - 1; i++)
@@ -112,11 +137,14 @@ int[] Sort(int[] sequence)
 	
 	return sequence;
 }
-```
-
-## 6. Merge Sort
-Note: It is required to specify a condition for breaking recursion, to prevent endless trap. So in all recursion based algorithms like Merge Sort, Binary Search etc., specify a breaking condition or breakpoint for recursion at the starting.
-```c#
+	\end{minted}
+	
+	\section{Merge Sort}
+	\emph{Note}: It is required to specify a condition for breaking recursion, to prevent endless trap. So in all recursion based algorithms like Merge Sort, Binary Search etc., specify a breaking condition or breakpoint for recursion at the starting.
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 void Merge(int[] a, int min, int mid, int max)
 {
 	int n1 = mid - min + 1;
@@ -164,10 +192,14 @@ public int[] Sort(int[] a, int min, int max)
 	
 	return a;
 }
-```
-
-## 7. Binary Search
-```c#
+	\end{minted}
+	
+	\section{Binary Search}
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
+// This BinarySearch operates on sorted arrays only
 int? Search(int[] a, int key, int min, int max)
 {
 	if (min > max) return null;
@@ -183,10 +215,13 @@ int? Search(int[] a, int key, int min, int max)
 			return Search(a, key, min, mid - 1);
 	}
 }
-```
-
-## 8. Max Sub-Array
-```c#
+	\end{minted}
+	
+	\section{Max Sub-Array}
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 (int left, int right, int sum) FindMidCrossingArray(int[] a, int min, int mid, int max)
 {
 	int lSum = int.MinValue, rSum = int.MinValue, sum = 0, left = min, right = max;
@@ -229,10 +264,13 @@ int? Search(int[] a, int key, int min, int max)
 	else 
 		return (crossLow, crossHigh, crossSum);
 }
-```
-
-## 9. Heap Sort
-```c#
+	\end{minted}
+	
+	\section{Heap Sort}
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int Left(int i) => 2 * i + 1; // i = node at action
 int Right(int i) => 2 * i + 2;
 int _heapSize = 8;
@@ -277,10 +315,13 @@ int[] Sort(int[] a)
 	
 	return a;
 }
-```
-
-## 10. Quick Sort
-```c#
+	\end{minted}
+	
+	\section{Quick Sort}
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int Partition(int[] a, int min, int max)
 {
 	int x = a[max];
@@ -309,10 +350,13 @@ int[] Sort(int[] a, int min, int max)
 	
 	return a;
 }
-```
-
-## 11. Count Sort
-```c#
+	\end{minted}
+	
+	\section{Count Sort}
+	\begin{minted}[ obeytabs=true,
+		tabsize=4,
+		fontsize=\footnotesize,
+		linenos]{csharp}
 int Max(int[] a)
 {
 	int max = a[0];
@@ -346,4 +390,6 @@ int[] Sort(int[] a)
 	
 	return b;
 }
-```
+	\end{minted}
+	
+\end{document}

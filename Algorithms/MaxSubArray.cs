@@ -8,10 +8,10 @@ namespace Algorithms
 {
     internal class MaxSubArray
     {
-        private static (int left, int right, int sum) FindMidCrossingArray(int[] a, int p, int q, int r)
+        private static (int left, int right, int sum) FindMidCrossingArray(int[] a, int min, int mid, int max)
         {
-            int lSum = int.MinValue, rSum = int.MinValue, sum = 0, left = p, right = r;
-            for (int i = q; i >= p; i--)
+            int lSum = int.MinValue, rSum = int.MinValue, sum = 0, left = min, right = max;
+            for (int i = mid; i >= min; i--)
             {
                 sum += a[i];
                 if (sum > lSum)
@@ -21,7 +21,7 @@ namespace Algorithms
                 }
             }
             sum = 0;
-            for (int i = q + 1; i <= r; i++)
+            for (int i = mid + 1; i <= max; i++)
             {
                 sum += a[i];
                 if (sum > rSum)
@@ -34,14 +34,14 @@ namespace Algorithms
             return (left, right, lSum + rSum);
         }
 
-        public static (int left, int right, int sum) FindMaxSubArray(int[] a, int p, int r)
+        public static (int left, int right, int sum) FindMaxSubArray(int[] a, int min, int max)
         {
-            if (p == r) return (p, r, a[p]);
+            if (min == max) return (min, max, a[min]);
 
-            int q = (p + r) / 2;
-            (int leftLow, int leftHigh, int leftSum) = FindMaxSubArray(a, p, q);
-            (int rightLow, int rightHigh, int rightSum) = FindMaxSubArray(a, q + 1, r);
-            (int crossLow, int crossHigh, int crossSum) = FindMidCrossingArray(a, p, q, r);
+            int mid = (min + max) / 2;
+            (int leftLow, int leftHigh, int leftSum) = FindMaxSubArray(a, min, mid);
+            (int rightLow, int rightHigh, int rightSum) = FindMaxSubArray(a, mid + 1, max);
+            (int crossLow, int crossHigh, int crossSum) = FindMidCrossingArray(a, min, mid, max);
 
             if (leftSum >= rightSum && leftSum >= crossSum)
                 return (leftLow, leftHigh, leftSum);

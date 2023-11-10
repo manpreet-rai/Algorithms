@@ -5,7 +5,7 @@ namespace Algorithms
 {
     public class HeapSort
     {
-        public static int Parent(int i) => i / 2;
+        public static int Parent(int i) => i / 2; // i = node at action
         public static int Left(int i) => 2 * i + 1;
         public static int Right(int i) => 2 * i + 2;
         public static int HeapSize = 8;
