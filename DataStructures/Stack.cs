@@ -14,8 +14,6 @@ namespace DataStructures
 
         public Stack(): this(8) { }
 
-        private bool StackEmpty() => Top == 0;
-
         public void Push(int value)
         {
             if (Top < Data.Length - 1)
