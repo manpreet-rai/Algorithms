@@ -20,6 +20,19 @@ namespace DataStructures
             MaxPriorityQueue.Init(ref newQueue);
             Algorithms.Program.PrintIntArray(newQueue, "New Queue, Sequence: ");
 
+            Stack stack = new Stack(16);
+            Console.WriteLine($"Current Stack Top: {stack.top}");
+            stack.Push(13);
+            stack.Push(9);
+            stack.Push(15);
+            Algorithms.Program.PrintIntArray(stack.data, "After 3 pushes: ");
+
+            Console.WriteLine($"Current Stack Top: {stack.top}");
+            Console.WriteLine($"Pop value: {stack.Pop()}");
+            Console.WriteLine($"Pop value: {stack.Pop()}");
+            Console.WriteLine($"Pop value: {stack.Pop()}");
+            Console.WriteLine($"Current Stack Top: {stack.top}");
+            Algorithms.Program.PrintIntArray(stack.data, "After 3 pops: ");
         }
     }
 }
