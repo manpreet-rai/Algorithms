@@ -9,30 +9,30 @@ namespace DataStructures
 
         public Stack(int length)
         {
-            data = new int[length];
+            Data = new int[length];
         }
 
         public Stack(): this(8) { }
 
-        private bool StackEmpty() => top == 0;
+        private bool StackEmpty() => Top == 0;
 
         public void Push(int value)
         {
-            if (top < data.Length - 1)
+            if (Top < Data.Length - 1)
             {
-                top++;
-                data[top] = value;
+                Top++;
+                Data[Top] = value;
             }
             else throw new Exception("Stack Overflow");
         }
 
         public int Pop()
         {
-            if (top >= 0)
+            if (Top >= 0)
             {
-                int x = data[top];
-                top--;
-                data[top + 1] = 0;
+                int x = Data[Top];
+                Top--;
+                Data[Top + 1] = 0;
                 return x;
             }
 
